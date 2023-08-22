@@ -1,0 +1,42 @@
+@model List<Student>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+</head>
+
+<body>
+      <table class="table">
+       <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+    @foreach (var student in @Model)
+    {
+                <tr>
+                    <th >@student.Id</th>
+                    <td >@student.FirstName</td>
+                    <td >@student.LastName</td>
+                    <td >@student.Email</td>
+                    <td >@student.Age</td>
+                    <td > <a href="/Student/Detail/@student.Id" class="btn btn-primary">View</a>
+                    <a href="/Student/Edit/@student.Id" class="btn btn-warning">Edit</a>
+                    <a href="/Student/Delete/@student.Id"   class="btn btn-danger">Delete</a>
+                </tr>
+    }
+            </tbody>
+        </table>
+</body>
+
+</html>
